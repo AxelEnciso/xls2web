@@ -5,10 +5,7 @@ import xlsdata
 @app.route("/")
 @app.route("/index")
 def index():
-    titlew = xlsdata.getTitle()
-    print (titlew)
-    aboutImg = xlsdata.getAboutImg()
-    print (aboutImg)
-    aboutText = xlsdata.getAboutText()
-    print(aboutText)
-    return render_template('index.html',title=titlew, aboutText = aboutText, aboutImg = aboutImg)
+    products = xlsdata.information["PRODUCTOS"]
+    page_info = xlsdata.information["INFORMACION"]
+    is_available = xlsdata.is_available
+    return render_template('index.html',  page_info = page_info, products = products, is_available=is_available )
