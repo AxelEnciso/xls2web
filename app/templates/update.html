@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../static/styles.css" />
+		<link rel="stylesheet" href="../static/form.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="header">
+			<a href="/">Inicio</a>
+			<h2>Editar producto</h2>
+		</div>
+		<div class="section">
+			<form method="POST">
+				<input type="hidden" name="id" value="{{ product.id }}" />
+				<label for="nombre"
+					>Nombre <input type="text" name="nombre" value="{{product.nombre}}"
+				/></label>
+				<label for="precio"
+					>Precio <input type="number" name="precio" value="{{product.precio}}"
+				/></label>
+				<label for="cantidad"
+					>Cantidad
+					<input type="number" name="cantidad" value="{{product.cantidad}}"
+				/></label>
+				<label for="categoria"
+					>Categoría
+					<input type="text" name="categoria" value="{{product.categoria}}"
+				/></label>
+				<label for="imagen"
+					>Imagen <input type="text" name="imagen" value="{{product.imagen}}"
+				/></label>
+				<button>Editar</button>
+			</form>
+		</div>
+	</body>
+</html>
