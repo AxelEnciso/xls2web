@@ -11,7 +11,10 @@
 		<!-- <div class="options">
 			<h3>Filtrar</h3>
 		</div> -->
-		<h3 class="subtitle">Productos</h3>
+		<div class="subtitle">
+			<h3 class="">Productos</h3>
+			<a href="/add">Agregar producto</a>
+		</div>
 		<ul class="products">
 			{% for product in products %}
 			<li class="products__item">
@@ -31,8 +34,8 @@
 						</ul>
 					</div>
 					<div class="item__buttons">
-						<button>Editar</button>
-						<button>Eliminar</button>
+						<a href="/{{ product.id }}/update">Editar</a>
+						<a href="/{{ product.id }}/delete">Eliminar</a>
 					</div>
 					{% if not is_available(product.id) %}
 					<span class="not_available">No disponible</span>
