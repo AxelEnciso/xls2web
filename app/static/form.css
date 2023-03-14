@@ -1,0 +1,39 @@
+form {
+	width: 60%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-inline: auto;
+}
+form label {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+	font-size: 18px;
+	font-weight: bold;
+}
+form label input {
+	border: 2px solid black;
+	font-size: 16px;
+	border-radius: 5px;
+	padding: 0.25rem;
+
+	box-shadow: 2px 2px black;
+	border: 2px solid black;
+	outline: none;
+}
+
+form button {
+	width: 80%;
+	background-color: rgb(144, 255, 144);
+	margin-top: 1rem;
+	border-radius: 10px;
+	padding: 0.5rem;
+
+	box-shadow: 2px 2px black;
+	border: 2px solid black;
+	cursor: pointer;
+}

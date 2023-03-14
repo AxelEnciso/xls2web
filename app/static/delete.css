@@ -1,0 +1,34 @@
+.info__container {
+	width: 50%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+}
+
+.info__container span {
+	display: block;
+	font-size: 20px;
+}
+
+.info__container img {
+	width: 200px;
+}
+
+.btnopciones {
+	display: flex;
+	justify-content: left;
+}
+.btnopciones a,
+.btnopciones button {
+	text-decoration: none;
+	background-color: white;
+	border: 2px solid black;
+	font-size: 16px;
+	padding: 0.25rem;
+	border-radius: 10px;
+	margin: 5px;
+	color: black;
+	cursor: pointer;
+}

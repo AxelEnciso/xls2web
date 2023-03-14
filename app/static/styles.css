@@ -8,14 +8,25 @@ body {
 	padding: 1rem;
 	margin: auto;
 	max-width: 1100px;
-	background-color: rgb(228, 255, 247);
+	background-color: rgb(240, 240, 240);
+}
+.header a {
+	align-self: left;
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	text-decoration: none;
+	color: rgb(63, 63, 63);
 }
 .header {
+	position: relative;
 	width: 100%;
+	display: flex;
+	justify-content: center;
 	margin-inline: auto;
 	padding-block: 1rem;
 	text-align: center;
-	background-color: rgb(220, 252, 219);
+	background-color: rgb(255, 255, 255);
 	border-radius: 10px;
 	box-shadow: 4px 4px black;
 	border: 2px solid black;
@@ -82,7 +93,8 @@ body {
 	justify-content: space-between;
 	padding-inline: 0.5rem;
 }
-.item__buttons button {
+
+.item__buttons a {
 	background-color: white;
 	border: 1px solid rgb(51, 51, 51);
 	padding: 0.25rem 1rem;
@@ -91,22 +103,25 @@ body {
 	border: 2px solid rgb(51, 51, 51);
 	cursor: pointer;
 	transition: background 0.25s ease;
+	text-decoration: none;
+	color: rgb(51, 51, 51);
 }
 
-.item__buttons button:hover:nth-child(1) {
+.item__buttons a:hover:nth-child(1) {
 	background-color: rgb(255, 235, 56);
 }
-.item__buttons button:hover:nth-child(2) {
+
+.item__buttons a:hover:nth-child(2) {
 	background-color: rgb(255, 86, 86);
 }
-.item__buttons button:hover {
+
+.item__buttons a:hover {
 	box-shadow: 2px 2px black;
 	border: 2px solid black;
 }
-.options {
+.section {
 	margin-top: 1.5rem;
 	width: 100%;
-	height: 200px;
 	background-color: white;
 	border-radius: 10px;
 	box-shadow: 4px 4px black;
@@ -115,19 +130,36 @@ body {
 }
 .subtitle {
 	margin-top: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid black;
+	padding: 0.75rem;
+}
+.subtitle a {
+	border-radius: 5px;
+	background-color: rgb(158, 255, 158);
+	padding: 0.25rem 0.5rem;
+	text-decoration: none;
+	color: black;
+	box-shadow: 4px 4px black;
+	border: 2px solid black;
+	font-weight: 600;
+}
+.subtitle h3 {
 	font-size: 20px;
-	border-bottom: 3px solid black;
+	align-self: self-end;
 }
 
 .not_available {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 15%;
+	left: -25%;
 	width: 100%;
 	padding-block: 0.25rem;
 	background-color: rgb(252, 255, 86);
 	font-weight: bold;
 	display: block;
 	text-align: center;
-	border-bottom: 2px solid black;
+	border-block: 2px solid black;
+	transform: rotate(-45deg);
 }
