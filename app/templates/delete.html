@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../static/styles.css" />
+		<link rel="stylesheet" href="../static/delete.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header class="header">
+			<h2>Eliminar</h2>
+		</header>
+		<div class="section">
+			<div class="info__container">
+				<span> <b>ID:</b> {{ product.id }}</span>
+				<span><b>Nombre:</b> {{ product.nombre }}</span>
+				<span><b>Precio:</b> {{ product.precio }}</span>
+				<span><b>Cantidad:</b> {{ product.cantidad }}</span>
+				<span><b>Categoria:</b> {{ product.categoria }}</span>
+				<img
+					src="{{ product.imagen }}"
+					alt="Imagen del producto {{ product.imagen }}"
+				/>
+				<h4>¿Deseas eliminar este producto?</h4>
+				<div class="btnopciones">
+					<form method="POST">
+						<button>Eliminar</button>
+					</form>
+					<a href="/">Cancelar</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
