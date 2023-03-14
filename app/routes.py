@@ -18,7 +18,7 @@ def add():
     else:
         next_id = xlsdata.get_next_id()
         return render_template('add.html', next_id=next_id)
-    
+
 @app.route("/<int:id>/delete", methods=["GET","POST"])
 def delete(id):
     product = xlsdata.get_product_by_id(id)
@@ -26,12 +26,12 @@ def delete(id):
         xlsdata.delete_product(product)
         return redirect(url_for('index'))
     return render_template('delete.html', product=product)
-    
+
 @app.route("/<int:id>/update", methods=["GET","POST"])
 def update(id):
     product = xlsdata.get_product_by_id(id)
     if request.method == "POST":
-        xlsdata.update_product(product)
+        xlsdata.update_product(request.form)
         return redirect(url_for('index'))
     return render_template('update.html', product=product)
     
