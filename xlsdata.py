@@ -72,22 +72,30 @@ def update_product(product):
     wb = copy(book)
     sheet = wb.get_sheet(1)
     sheet_available = wb.get_sheet(2)
-    for p,i in information["PRODUCTOS"]:
-        if product["id"] == p["id"]:
-            # Add product on excel
+    
+    i = 1
+    for p in information["PRODUCTOS"]:
+        print(product["id"], p["id"])
+        if int(float(str(product["id"]))) == int(float(str(p["id"]))):
+            print(p)
             sheet.write(i, 0, int(product["id"]))
             sheet.write(i, 1, str(product["nombre"]))
             sheet.write(i, 2, float(product["precio"]))
-            sheet.write(i, 3, int(product["cantidad"]))
+            sheet.write(i, 3, int(float(product["cantidad"])))
             sheet.write(i, 4, str(product["categoria"]))
             sheet.write(i, 5, str(product["imagen"]))
             sheet_available.write(i, 0, int(product["id"]))
             sheet_available.write(i, 1, bool(1))
+            print(i)
+            break
+        i += 1
     # Add product on state
-    information["PRODUCTOS"].append(product)
+    print(information["PRODUCTOS"])
+    print(product)
+    print(i-2)
+    information["PRODUCTOS"][i-2] = product
     information["DISPONIBILIDAD"][int(product["id"])] = bool(1)
+    print(information["PRODUCTOS"][i-2])
     wb.save('pagina.xls')
-
-
 
 loadXLS()
