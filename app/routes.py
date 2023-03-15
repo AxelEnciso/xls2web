@@ -13,7 +13,7 @@ def index():
 @app.route("/add", methods=["GET","POST"])
 def add():
     if request.method == "POST":
-        xlsdata.add_product(request.form)
+        xlsdata.add_product(request.form.to_dict())
         return redirect(url_for('index'))
     else:
         next_id = xlsdata.get_next_id()
@@ -31,7 +31,7 @@ def delete(id):
 def update(id):
     product = xlsdata.get_product_by_id(id)
     if request.method == "POST":
-        xlsdata.update_product(request.form)
+        xlsdata.update_product(product, request.form.to_dict())
         return redirect(url_for('index'))
     return render_template('update.html', product=product)
     
