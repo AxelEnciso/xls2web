@@ -2,49 +2,49 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../static/styles.css" />
-		<link rel="stylesheet" href="../static/delete.css" />
-		<title>Document</title>
+		<link rel="stylesheet" href="../static/css/main.css" />
+		<link rel="stylesheet" href="../static/css/delete.css" />
+		<link rel="stylesheet" href="../static/css/form.css" />
+		<title>Eliminar producto</title>
 	</head>
 	<body>
 		<header class="header">
-			<a href="/">❌</a>
-			<h2>Eliminar</h2>
+			<a class="header__return" href="/">❌</a>
+			<h2 class="header__title">Eliminar</h2>
 		</header>
-		<main>
-			<div class="section">
-				<div class="info__container">
-					<div class="info__container--campo">
+		<main class="main">
+			<section class="main__section">
+				<div class="product">
+					<div class="product__field">
 						<b>ID</b><span> {{ product.id }}</span>
 					</div>
-					<div class="info__container--campo">
+					<div class="product__field">
 						<b>Nombre</b><span> {{ product.nombre }}</span>
 					</div>
-					<div class="info__container--campo">
+					<div class="product__field">
 						<b>Precio</b><span> {{ product.precio }}</span>
 					</div>
-					<div class="info__container--campo">
+					<div class="product__field">
 						<b>Cantidad</b><span> {{ product.cantidad }}</span>
 					</div>
-					<div class="info__container--campo">
+					<div class="product__field">
 						<b>Categoría</b><span> {{ product.categoria }}</span>
 					</div>
 					<img
+						class="product__image"
 						src="{{ product.imagen }}"
 						alt="Imagen del producto {{ product.imagen }}"
 					/>
-					<div class="delete__opciones">
-						<h4>¿Deseas eliminar este producto?</h4>
-						<div class="btnopciones">
-							<form method="POST">
-								<button>Eliminar</button>
-							</form>
-						</div>
+					<div class="delete">
+						<h4 class="delete__question">¿Deseas eliminar este producto?</h4>
+
+						<form class="delete__options" method="POST">
+							<button class="form__button bg-red">¡Si, Eliminar!</button>
+						</form>
 					</div>
 				</div>
-			</div>
+			</section>
 		</main>
 	</body>
 </html>

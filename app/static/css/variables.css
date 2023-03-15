@@ -1,0 +1,16 @@
+:root {
+	--green: rgb(158, 255, 158);
+	--red: rgb(255, 130, 130);
+	--yellow: rgb(255, 235, 56);
+	--blue: rgb(86, 232, 255);
+	--white: rgb(250, 250, 250);
+	--whitesmoke: rgb(235, 235, 235);
+	--black: rgb(10, 10, 10);
+	--blacksmoke: rgb(50, 50, 50);
+	--border: 2px solid var(--black);
+	--border-smoke: 2px solid var(--blacksmoke);
+	--shadow: 4px 4px var(--black);
+	--shadow-smoke: 4px 4px var(--blacksmoke);
+	--shadow-small: 2px 2px var(--black);
+	--shadow-small-smoke: 2px 2px var(--blacksmoke);
+}

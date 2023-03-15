@@ -1,4 +1,6 @@
-form {
+@import url(variables.css);
+
+.form {
 	width: 60%;
 	max-width: 400px;
 	display: flex;
@@ -7,7 +9,8 @@ form {
 	align-items: center;
 	margin-inline: auto;
 }
-form label {
+
+.form__label {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -15,33 +18,33 @@ form label {
 	font-size: 18px;
 	font-weight: bold;
 }
-form label input {
+
+.form__input {
 	font-size: 16px;
 	border-radius: 5px;
 	padding: 0.25rem;
-	box-shadow: 2px 2px black;
-	border: 2px solid black;
+	box-shadow: var(--border);
+	border: var(--border);
 	outline: none;
 }
 
-form button {
+.form__button {
 	width: 80%;
-	background-color: rgb(144, 255, 144);
 	margin-top: 1rem;
 	border-radius: 10px;
 	padding: 0.5rem;
 	font-weight: bold;
-	box-shadow: 2px 2px black;
-	border: 2px solid black;
+	box-shadow: var(--shadow-small);
+	border: var(--border);
 	cursor: pointer;
 }
 
-input[type="checkbox"] {
+.form__checkbox {
 	width: 20px;
 	height: 20px;
-	border: 2px solid black;
+	border: var(--border);
 }
 
 .btn__editar {
-	background-color: rgb(255, 235, 56);
+	background-color: var(--yellow);
 }

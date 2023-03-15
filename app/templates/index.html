@@ -1,50 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 	<head>
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="static/styles.css" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<title>{{ page_info["TITULO"] }}</title>
 	</head>
 	<body>
 		<header class="header">
-			<img src="static/img/keyboard.png" alt="logo de teclado" width="34" />
-			<h2>{{ page_info["TITULO"]}}</h2>
+			<img
+				class="header__logo"
+				src="static/img/{{ page_info['LOGO'] }}"
+				alt="logo de teclado"
+				width="34"
+			/>
+			<h2 class="header__title">{{ page_info["TITULO"]}}</h2>
 		</header>
 
-		<main>
+		<main class="main">
 			<div class="subtitle">
-				<h3 class="">Productos</h3>
-				<a href="/add">Agregar producto</a>
+				<h3>Productos</h3>
+				<a class="subtitle__link" href="/create">Agregar producto</a>
 			</div>
-			<ul class="products">
+			<ul class="product-list">
 				{% for product in products %}
-				<li class="products__item">
-					<div class="item__information">
-						<div class="item__image">
-							<img
-								src="{{ product.imagen }}"
-								alt="Imagen del producto {{ product.nombre }}"
-							/>
-						</div>
-						<div class="item__information-text">
-							<h4>{{ product.nombre }}</h4>
-							<ul>
-								<li><b>Precio</b> <span>{{ product.precio }}</span></li>
-								<li><b>Cantidad</b> <span>{{ product.cantidad }}</span></li>
-								<li><b>Categoría</b> <span>{{ product.categoria }}</span></li>
-							</ul>
-						</div>
-						<div class="item__buttons">
-							<a href="/{{ product.id }}/update">Editar</a>
-							<a href="/{{ product.id }}/delete">Eliminar</a>
-						</div>
-						{% if not is_available(product.id) %}
-						<span class="not_available">No disponible</span>
-						{% endif %}
+				<li class="product-card">
+					<div class="product-card__image">
+						<img
+							src="{{ product.imagen }}"
+							alt="Imagen del producto {{ product.nombre }}"
+						/>
 					</div>
+					<div class="product-card__details">
+						<h4 class="product-card__title">{{ product.nombre }}</h4>
+						<ul class="product-card__details-list">
+							<li><b>Precio</b> <span>{{ product.precio }}</span></li>
+							<li><b>Cantidad</b> <span>{{ product.cantidad }}</span></li>
+							<li><b>Categoría</b> <span>{{ product.categoria }}</span></li>
+						</ul>
+					</div>
+					<div class="product-card__buttons">
+						<a
+							class="product-card__buttons-link"
+							href="/{{ product.id }}/update"
+							>Editar</a
+						>
+						<a
+							class="product-card__buttons-link"
+							href="/{{ product.id }}/delete"
+							>Eliminar</a
+						>
+					</div>
+					{% if not is_available(product.id) %}
+					<span class="product-list__item--not-available">No disponible</span>
+					{% endif %}
 				</li>
 				{% endfor %}
 			</ul>
 		</main>
-		<footer>Hecho por: {{ page_info.AUTOR }}</footer>
+		<footer class="footer">Hecho por: {{ page_info.AUTOR }}</footer>
 	</body>
 </html>

@@ -1,48 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../static/styles.css" />
-		<link rel="stylesheet" href="../static/form.css" />
-		<title>Document</title>
+		<link rel="stylesheet" href="../static/css/main.css" />
+		<link rel="stylesheet" href="../static/css/form.css" />
+		<title>Actualizar producto</title>
 	</head>
 	<body>
 		<header class="header">
-			<a href="/">❌</a>
-			<h2>Editar producto</h2>
+			<a class="header__return" href="/">❌</a>
+			<h2 class="header__title">Editar producto</h2>
 		</header>
-		<main>
-			<div class="section">
-				<form method="POST">
+		<main class="main">
+			<section class="main__section">
+				<form class="form" method="POST">
 					<input type="hidden" name="id" value="{{ product.id }}" />
-					<label for="nombre"
+					<label class="form__label" for="nombre"
 						>Nombre
-						<input type="text" name="nombre" value="{{ product.nombre }}"
+						<input
+							class="form__input"
+							type="text"
+							name="nombre"
+							value="{{ product.nombre }}"
 					/></label>
-					<label for="precio"
+					<label class="form__label" for="precio"
 						>Precio
-						<input type="number" name="precio" value="{{ product.precio }}"
+						<input
+							class="form__input"
+							type="number"
+							name="precio"
+							value="{{ product.precio }}"
 					/></label>
-					<label for="cantidad"
+					<label class="form__label" for="cantidad"
 						>Cantidad
-						<input type="number" name="cantidad" value="{{ product.cantidad }}"
+						<input
+							class="form__input"
+							type="number"
+							name="cantidad"
+							value="{{ product.cantidad }}"
 					/></label>
-					<label for="categoria"
+					<label class="form__label" for="categoria"
 						>Categoría
-						<input type="text" name="categoria" value="{{ product.categoria }}"
+						<input
+							class="form__input"
+							type="text"
+							name="categoria"
+							value="{{ product.categoria }}"
 					/></label>
-					<label for="imagen"
+					<label class="form__label" for="imagen"
 						>Imagen
-						<input type="text" name="imagen" value="{{ product.imagen }}"
+						<input
+							class="form__input"
+							type="text"
+							name="imagen"
+							value="{{ product.imagen }}"
 					/></label>
-					<label for="disponible"
-						>Disponibilidad <input type="checkbox" name="disponible" checked
+					<label class="form__label" for="disponible"
+						>Disponibilidad
+						<input
+							class="form__checkbox"
+							type="checkbox"
+							name="disponible"
+							checked
 					/></label>
-					<button class="btn__editar">Editar</button>
+					<button class="form__button bg-yellow">Editar</button>
 				</form>
-			</div>
+			</section>
 		</main>
 	</body>
 </html>
