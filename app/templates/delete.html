@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,27 +10,41 @@
 	</head>
 	<body>
 		<header class="header">
+			<a href="/">❌</a>
 			<h2>Eliminar</h2>
 		</header>
-		<div class="section">
-			<div class="info__container">
-				<span> <b>ID:</b> {{ product.id }}</span>
-				<span><b>Nombre:</b> {{ product.nombre }}</span>
-				<span><b>Precio:</b> {{ product.precio }}</span>
-				<span><b>Cantidad:</b> {{ product.cantidad }}</span>
-				<span><b>Categoria:</b> {{ product.categoria }}</span>
-				<img
-					src="{{ product.imagen }}"
-					alt="Imagen del producto {{ product.imagen }}"
-				/>
-				<h4>¿Deseas eliminar este producto?</h4>
-				<div class="btnopciones">
-					<form method="POST">
-						<button>Eliminar</button>
-					</form>
-					<a href="/">Cancelar</a>
+		<main>
+			<div class="section">
+				<div class="info__container">
+					<div class="info__container--campo">
+						<b>ID</b><span> {{ product.id }}</span>
+					</div>
+					<div class="info__container--campo">
+						<b>Nombre</b><span> {{ product.nombre }}</span>
+					</div>
+					<div class="info__container--campo">
+						<b>Precio</b><span> {{ product.precio }}</span>
+					</div>
+					<div class="info__container--campo">
+						<b>Cantidad</b><span> {{ product.cantidad }}</span>
+					</div>
+					<div class="info__container--campo">
+						<b>Categoría</b><span> {{ product.categoria }}</span>
+					</div>
+					<img
+						src="{{ product.imagen }}"
+						alt="Imagen del producto {{ product.imagen }}"
+					/>
+					<div class="delete__opciones">
+						<h4>¿Deseas eliminar este producto?</h4>
+						<div class="btnopciones">
+							<form method="POST">
+								<button>Eliminar</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	</body>
 </html>
