@@ -9,32 +9,40 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<div class="header">
-			<a href="/">Inicio</a>
+		<header class="header">
+			<a href="/">❌</a>
 			<h2>Editar producto</h2>
-		</div>
-		<div class="section">
-			<form method="POST">
-				<input type="hidden" name="id" value="{{ product.id }}" />
-				<label for="nombre"
-					>Nombre <input type="text" name="nombre" value="{{product.nombre}}"
-				/></label>
-				<label for="precio"
-					>Precio <input type="number" name="precio" value="{{product.precio}}"
-				/></label>
-				<label for="cantidad"
-					>Cantidad
-					<input type="number" name="cantidad" value="{{product.cantidad}}"
-				/></label>
-				<label for="categoria"
-					>Categoría
-					<input type="text" name="categoria" value="{{product.categoria}}"
-				/></label>
-				<label for="imagen"
-					>Imagen <input type="text" name="imagen" value="{{product.imagen}}"
-				/></label>
-				<button>Editar</button>
-			</form>
-		</div>
+		</header>
+		<main>
+			<div class="section">
+				<form method="POST">
+					<input type="hidden" name="id" value="{{ product.id }}" />
+					<label for="nombre"
+						>Nombre
+						<input type="text" name="nombre" value="{{ product.nombre }}"
+					/></label>
+					<label for="precio"
+						>Precio
+						<input type="number" name="precio" value="{{ product.precio }}"
+					/></label>
+					<label for="cantidad"
+						>Cantidad
+						<input type="number" name="cantidad" value="{{ product.cantidad }}"
+					/></label>
+					<label for="categoria"
+						>Categoría
+						<input type="text" name="categoria" value="{{ product.categoria }}"
+					/></label>
+					<label for="imagen"
+						>Imagen
+						<input type="text" name="imagen" value="{{ product.imagen }}"
+					/></label>
+					<label for="disponible"
+						>Disponibilidad <input type="checkbox" name="disponible" checked
+					/></label>
+					<button class="btn__editar">Editar</button>
+				</form>
+			</div>
+		</main>
 	</body>
 </html>
