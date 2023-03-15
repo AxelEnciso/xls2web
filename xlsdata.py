@@ -8,6 +8,14 @@ information = {
     'DISPONIBILIDAD':{},
     'INFORMACION':{}
 }
+EMPTY_PRODUCT = {
+    'id':"",
+    'nombre':"",
+    'precio':"",
+    'cantidad':"",
+    'categoria':"",
+    'imagen':"",
+}
 
 def loadXLS():
     for sheet in book:
@@ -35,67 +43,62 @@ def format_product(sheet, row):
 
 def is_available(id):
     return information["DISPONIBILIDAD"][int(id)]
-                
-#esta funcion valida que la columna sea la de los ID y busca un id especifico
+
 def get_product_by_id(id):
     for product in information["PRODUCTOS"]:
-        if product["id"] == id:
+        if int(float(str(product["id"]))) == int(float(str(id))):
             return product
-    
+        
+def get_product_idx(product):
+    return information["PRODUCTOS"].index(product)
+
 def get_next_id():
     return information["PRODUCTOS"][-1]["id"] + 1
 
 def add_product(product):
-    wb = copy(book)
-    sheet = wb.get_sheet(1)
-    sheet_available = wb.get_sheet(2)
     next_row = len(information["PRODUCTOS"]) + 1
-    # Add product on excel
-    sheet.write(next_row, 0, int(product["id"]))
-    sheet.write(next_row, 1, str(product["nombre"]))
-    sheet.write(next_row, 2, float(product["precio"]))
-    sheet.write(next_row, 3, int(product["cantidad"]))
-    sheet.write(next_row, 4, str(product["categoria"]))
-    sheet.write(next_row, 5, str(product["imagen"]))
-    sheet_available.write(next_row, 0, int(product["id"]))
-    sheet_available.write(next_row, 1, bool(1))
-    # Add product on state
+    write_product(next_row, product)
     information["PRODUCTOS"].append(product)
     information["DISPONIBILIDAD"][int(product["id"])] = bool(1)
-    wb.save('pagina.xls')
 
 def delete_product(product):
-    information["PRODUCTOS"].remove(product)
-    del information["DISPONIBILIDAD"][product["id"]]
-    
-def update_product(product):
-    wb = copy(book)
-    sheet = wb.get_sheet(1)
-    sheet_available = wb.get_sheet(2)
-    
-    i = 1
-    for p in information["PRODUCTOS"]:
-        print(product["id"], p["id"])
-        if int(float(str(product["id"]))) == int(float(str(p["id"]))):
-            print(p)
-            sheet.write(i, 0, int(product["id"]))
-            sheet.write(i, 1, str(product["nombre"]))
-            sheet.write(i, 2, float(product["precio"]))
-            sheet.write(i, 3, int(float(product["cantidad"])))
-            sheet.write(i, 4, str(product["categoria"]))
-            sheet.write(i, 5, str(product["imagen"]))
-            sheet_available.write(i, 0, int(product["id"]))
-            sheet_available.write(i, 1, bool(1))
-            print(i)
-            break
-        i += 1
-    # Add product on state
-    print(information["PRODUCTOS"])
-    print(product)
-    print(i-2)
-    information["PRODUCTOS"][i-2] = product
-    information["DISPONIBILIDAD"][int(product["id"])] = bool(1)
-    print(information["PRODUCTOS"][i-2])
+    index = get_product_idx(product)
+    len_products = len(information["PRODUCTOS"])
+    delete_row(len_products)
+    write_product(index + 1, information["PRODUCTOS"][len_products - 1])
+    information["PRODUCTOS"][index] = information["PRODUCTOS"][len_products - 1]
+    del information["PRODUCTOS"][len_products - 1]
+    del information["DISPONIBILIDAD"][int(float(str(product["id"])))]
+
+def write_product(index, product):
+    sheet_products.write(index, 0, int(product["id"]))
+    sheet_products.write(index, 1, str(product["nombre"]))
+    sheet_products.write(index, 2, float(product["precio"]))
+    sheet_products.write(index, 3, int(float(product["cantidad"])))
+    sheet_products.write(index, 4, str(product["categoria"]))
+    sheet_products.write(index, 5, str(product["imagen"]))
+    sheet_available.write(index, 0, int(product["id"]))
+    sheet_available.write(index, 1, bool(1))
     wb.save('pagina.xls')
 
+def delete_row(index):
+    sheet_products.write(index, 0, "")
+    sheet_products.write(index, 1, "")
+    sheet_products.write(index, 2, "")
+    sheet_products.write(index, 3, "")
+    sheet_products.write(index, 4, "")
+    sheet_products.write(index, 5, "")
+    sheet_available.write(index, 0, "")
+    sheet_available.write(index, 1, "")
+    wb.save('pagina.xls')
+
+def update_product(prev, product):
+    i = get_product_idx(prev)
+    write_product(i+1, product)
+    information["PRODUCTOS"][i] = product
+    information["DISPONIBILIDAD"][int(product["id"])] = bool(1)
+    
 loadXLS()
+wb = copy(book)
+sheet_products = wb.get_sheet(1)
+sheet_available = wb.get_sheet(2)
