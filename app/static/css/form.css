@@ -28,6 +28,12 @@
 	outline: none;
 }
 
+.form__checkbox {
+	width: 20px;
+	height: 20px;
+	border: var(--border);
+}
+
 .form__button {
 	width: 80%;
 	margin-top: 1rem;
@@ -37,14 +43,4 @@
 	box-shadow: var(--shadow-small);
 	border: var(--border);
 	cursor: pointer;
-}
-
-.form__checkbox {
-	width: 20px;
-	height: 20px;
-	border: var(--border);
-}
-
-.btn__editar {
-	background-color: var(--yellow);
 }

@@ -7,8 +7,10 @@
 	--whitesmoke: rgb(235, 235, 235);
 	--black: rgb(10, 10, 10);
 	--blacksmoke: rgb(50, 50, 50);
+
 	--border: 2px solid var(--black);
 	--border-smoke: 2px solid var(--blacksmoke);
+
 	--shadow: 4px 4px var(--black);
 	--shadow-smoke: 4px 4px var(--blacksmoke);
 	--shadow-small: 2px 2px var(--black);

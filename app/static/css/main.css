@@ -8,10 +8,10 @@
 }
 
 body {
-	background-color: whi;
+	background-color: var(--whitesmoke);
 }
 
-/* HEADER */
+/* Header */
 .header {
 	margin: 1rem;
 	position: relative;
@@ -197,6 +197,7 @@ body {
 	transform: rotate(-45deg);
 }
 
+/* Footer */
 .footer {
 	width: 100%;
 	margin-top: 2rem;
@@ -210,6 +211,7 @@ body {
 	padding-block: 2rem;
 }
 
+/* Utility classes */
 .bg-yellow {
 	background-color: var(--yellow);
 }
