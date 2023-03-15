@@ -16,11 +16,9 @@ form label {
 	font-weight: bold;
 }
 form label input {
-	border: 2px solid black;
 	font-size: 16px;
 	border-radius: 5px;
 	padding: 0.25rem;
-
 	box-shadow: 2px 2px black;
 	border: 2px solid black;
 	outline: none;
@@ -32,8 +30,18 @@ form button {
 	margin-top: 1rem;
 	border-radius: 10px;
 	padding: 0.5rem;
-
+	font-weight: bold;
 	box-shadow: 2px 2px black;
 	border: 2px solid black;
 	cursor: pointer;
+}
+
+input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	border: 2px solid black;
+}
+
+.btn__editar {
+	background-color: rgb(255, 235, 56);
 }
