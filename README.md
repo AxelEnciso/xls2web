@@ -25,4 +25,4 @@ La aplicación permite visualizar todos los teclados en el inventario, añadir n
 
 ## Créditos
 
-Este proyecto fue desarrollado por [Axel Enciso] para una tarea escolar en la materia lenguajes y automatas 2 con el profeso [pako3k].
+Este proyecto fue desarrollado por Axel Enciso para una tarea escolar en la materia lenguajes y automatas 2, con el profesor Pakoy3k.
