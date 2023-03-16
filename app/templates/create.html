@@ -17,16 +17,20 @@
 				<form class="form" method="POST">
 					<input type="hidden" name="id" value="{{ next_id }}" />
 					<label class="form__label" for="nombre"
-						>Nombre <input class="form__input" type="text" name="nombre"
+						>Nombre
+						<input class="form__input" type="text" name="nombre" required
 					/></label>
 					<label class="form__label" for="precio"
-						>Precio <input class="form__input" type="number" name="precio"
+						>Precio
+						<input class="form__input" type="number" name="precio" required
 					/></label>
 					<label class="form__label" for="cantidad"
-						>Cantidad <input class="form__input" type="number" name="cantidad"
+						>Cantidad
+						<input class="form__input" type="number" name="cantidad" required
 					/></label>
 					<label class="form__label" for="categoria"
-						>Categoría <input class="form__input" type="text" name="categoria"
+						>Categoría
+						<input class="form__input" type="text" name="categoria" required
 					/></label>
 					<label class="form__label" for="imagen"
 						>Imagen <input class="form__input" type="text" name="imagen"
@@ -39,7 +43,7 @@
 							name="disponible"
 							checked
 					/></label>
-					<button class="form__button bg-green">Editar</button>
+					<button class="form__button bg-green">Agregar</button>
 				</form>
 			</section>
 		</main>
