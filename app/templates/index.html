@@ -51,7 +51,7 @@
 							>Eliminar</a
 						>
 					</div>
-					{% if not is_available(product.id) %}
+					{% if not product.disponible %}
 					<span class="product-list__item--not-available">No disponible</span>
 					{% endif %}
 				</li>
