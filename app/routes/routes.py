@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, url_for, redirect
+from flask import render_template, request, url_for, redirect, jsonify, send_file
 from app.utils.read_xls import *
 from app.utils.write_xls import *
 
@@ -33,4 +33,23 @@ def update(id):
         update_product(product, parseForm(request.form))
         return redirect(url_for('index'))
     return render_template('update.html', product = product)
-    
+
+# API
+@app.route("/api/informacion", methods=["GET"])
+def informacion():
+    return jsonify(information["INFORMACION"])
+
+@app.route("/api/productos/", methods=["GET"])
+def productos():
+    return jsonify(total = len(information["PRODUCTOS"]), productos = information["PRODUCTOS"])
+
+@app.route("/api/productos/<int:id>", methods=["GET"])
+def producto(id):
+    product = get_product_by_id(id)
+    return jsonify(producto=product)
+
+@app.route("/api/logo.png", methods=["GET"])
+def logo():
+    return send_file("static\img\keyboard.png", mimetype='image/gif')
+
+
