@@ -2,7 +2,9 @@ from app import app
 from flask import render_template, request, url_for, redirect, jsonify, send_file
 from app.utils.read_xls import *
 from app.utils.write_xls import *
+from app.utils.xls import *
 
+# CRUD
 @app.route("/")
 @app.route("/index")
 def index():
@@ -51,5 +53,38 @@ def producto(id):
 @app.route("/api/logo.png", methods=["GET"])
 def logo():
     return send_file("static\img\keyboard.png", mimetype='image/gif')
+
+# XLS
+@app.route("/xls/<int:sheet>")
+def sheet(sheet):
+    contains_col = request.args.get("containsCol")
+    if contains_col:
+        return jsonify(containsCol = contains_col_name(sheet,contains_col))
+
+    cols = request.args.get("cols")
+    if cols:
+        return jsonify(get_cols(sheet,[int(col) for col in cols.split(',')]))
+
+    sortBy = request.args.get("sortBy")
+    if sortBy:
+        return jsonify(sort_sheet(sheet, str(sortBy)))
+    n_rows_cols = n_rows_and_columns(sheet)
+    return jsonify(data = get_sheet(sheet), info = n_rows_cols)
+
+@app.route("/xls")
+def xls():
+    return jsonify(nSheets = n_sheets(), sheetNames = sheet_names())
+
+@app.route("/xls/<int:sheet>/<int:col>")
+def col(sheet, col):
+    return jsonify(col_data(sheet, col))
+
+@app.route("/xls/<int:sheet>/<int:col>/<int:row>")
+def cell(sheet, col, row):
+    return jsonify(value = cell_value(sheet, col, row))
+
+
+
+
 
 
